@@ -1,0 +1,10 @@
+[rhel]
+rhel9-vm.example101.com
+
+
+[all:vars]
+ansible_ssh_user = ansible_admin
+ansible_ssh_pass = Pass123$
+
+[rhel:vars]
+super_group = wheel
