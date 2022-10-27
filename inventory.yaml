@@ -1,0 +1,10 @@
+all:
+  children:
+    rhel:
+      hosts:
+        rhel9-vm.example101.com:
+          ansible_ssh_pass: Pass123$
+          ansible_ssh_user: ansible_admin
+          super_group: wheel
+    ungrouped: {}
+
