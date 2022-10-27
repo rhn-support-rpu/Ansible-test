@@ -18,9 +18,9 @@
         groups: "{{ super_group }}"
         append: yes
 
-    - name: Deploy SSH Public Key
-      ansible.posix.authorized_key:
-        user: "{{ username }}"
-        state: present
-        key: "{{ lookup('file', '/home/{{ username }}/.ssh/id_rsa.pub') }}"
+#    - name: Deploy SSH Public Key
+#      ansible.posix.authorized_key:
+#        user: "{{ username }}"
+#        state: present
+#        key: "{{ lookup('file', '/home/{{ username }}/.ssh/id_rsa.pub') }}"
 
