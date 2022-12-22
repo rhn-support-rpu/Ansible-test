@@ -1,13 +1,14 @@
 ---
+- name: Win-copy
+  hosts: all
+  tasks:
 
-tasks:
+    - name: Copy File
 
-  - name: Copy File
+      win_copy:
 
-    win_copy:
+        src: C:\temp\ansible-test.txt
 
-      src: C:\temp\ansible-test.txt
-
-      dest: C:\temp1\
+        dest: C:\temp1\
      
-      remote_src: yes
+        remote_src: yes
