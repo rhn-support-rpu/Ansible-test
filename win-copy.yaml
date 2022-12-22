@@ -6,8 +6,8 @@ tasks:
 
     win_copy:
 
-      src: C:\output.pdf
+      src: C:\temp\ansible-test.txt
 
-      dest: C:\ansible_examples\
+      dest: C:\temp1\
      
       remote_src: yes
