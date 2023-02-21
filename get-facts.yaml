@@ -13,8 +13,8 @@
       set_stats:
         data:
           my_personal_variable: "{{ ansible_facts.ansible_os_family }}-blah"
-     -name: print my_personal_variable
-      debug:
-        msg: "This is my_personal_var {{my_personal_variable}}"
+     - name: print my_personal_variable
+       debug:
+         msg: "This is my_personal_var {{my_personal_variable}}"
  
  
