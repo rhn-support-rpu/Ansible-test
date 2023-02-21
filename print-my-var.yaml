@@ -1,0 +1,9 @@
+- name: getting stats
+  hosts: all
+  tasks:
+    - name: Do nothing, just that ansible ran, and ping
+      ping:
+
+    - name: Debug my_personal_variable
+      debug:
+        var: my_personal_variable
