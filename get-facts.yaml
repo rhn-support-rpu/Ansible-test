@@ -12,7 +12,7 @@
     - name: Set some data to pass down to the 2nd Job template
       set_stats:
         data:
-          my_personal_variable: "{{ ansible_facts.ansible_os_family }}-blah"
+          my_personal_variable: "{{ ansible_os_family }}-blah"
 
  
  
