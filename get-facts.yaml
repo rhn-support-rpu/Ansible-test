@@ -13,6 +13,7 @@
       set_stats:
         data:
           my_personal_variable: "{{ ansible_os_family }}-test-set-stats"
+      no_log: true
 
  
  
