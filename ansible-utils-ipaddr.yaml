@@ -1,5 +1,4 @@
-#### examples
-# Ipaddr filter plugin with different queries.
+---
 - name: Set value as input list
   ansible.builtin.set_fact:
     value:
