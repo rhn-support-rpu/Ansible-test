@@ -1,7 +1,5 @@
 ---
-
 - name: List the contents of home directory
-
   tasks:
           - name: List files and folder in home directory
             shell: 'ls -l'
