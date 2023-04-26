@@ -1,0 +1,8 @@
+---
+
+- name: List the contents of home directory
+
+  tasks:
+          - name: List files and folder in home directory
+            shell: 'ls -l'
+            shell: 'python3 --version 2>&1'
