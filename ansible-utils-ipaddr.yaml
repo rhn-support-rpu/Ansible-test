@@ -2,7 +2,6 @@
 - name: Example playbook for ansible.utils.ipaddr
   hosts: all
   gather_facts: yes
-
   tasks:
     - name: Calculate network address for a given IP address and subnet mask
       ansible.utils.ipaddr:
@@ -10,12 +9,10 @@
         netmask: "255.255.255.0"
         result_format: decimal
       register: result
-
     - name: Print calculated network address
       debug:
         var: result.net
         msg: "{{ result.net }}"
-
     - name: Calculate broadcast address for a given IP address and subnet mask
       ansible.utils.ipaddr:
         address: "192.168.1.10"
@@ -23,7 +20,6 @@
         result_format: decimal
         broadcast: yes
       register: result
-
     - name: Print calculated broadcast address
       debug:
         var: result.net
