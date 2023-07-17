@@ -38,8 +38,8 @@
         jid: "{{ b2_async.ansible_job_id }}"
       register: b2_async_result
       until: b2_async_result.finished
-      retries: 50
-      delay: 1
+      retries: 3
+      delay: 3
 
     - name: TestB2 - display sleep task results
       ansible.builtin.debug:
@@ -67,8 +67,8 @@
         jid: "{{ b3_async.ansible_job_id }}"
       register: b3_async_result
       until: b3_async_result.finished
-      retries: 50
-      delay: 1
+      retries: 3
+      delay: 3
       
 
     - name: TestB3 - display sleep task results
