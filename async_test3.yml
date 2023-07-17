@@ -1,0 +1,76 @@
+---
+- name: test async behaviour on AAP
+  hosts: all
+  ignore_errors: true
+  vars:
+    ansible_async_dir: '/tmp/ansible_async'
+
+
+  tasks:
+
+    #TestB1
+    - name: TestB1 - sleep task without async
+      ansible.builtin.command: /bin/sleep 15
+      register: b1_async
+
+    - name: TestB1 - display sleep task results
+      ansible.builtin.debug:
+        var: b1_async
+
+    #TestB2
+    - name: TestB2 - sleep task with async, unset async_dir
+      ansible.builtin.command: /bin/sleep 15
+      async: 1000
+      poll: 0
+      register: b2_async
+
+    - name: TestB2 - stat results file
+      ansible.builtin.stat:
+        path: "{{ b2_async.results_file }}"
+      register: b2_stat
+
+    - name: TestA2 - Display stat results
+      ansible.builtin.debug:
+        var: b2_stat
+
+    - name: TestB2 - wait for async
+      ansible.builtin.async_status:
+        jid: "{{ b2_async.ansible_job_id }}"
+      register: b2_async_result
+      until: b2_async_result.finished
+      retries: 50
+      delay: 1
+
+    - name: TestB2 - display sleep task results
+      ansible.builtin.debug:
+        var: b2_async
+
+    #TestB3
+    - name: TestB3 - sleep task with async, with async_dir
+      ansible.builtin.command: /bin/sleep 15
+      async: 1000
+      poll: 0
+      register: b3_async
+      
+
+    - name: TestB3 - stat results file
+      ansible.builtin.stat:
+        path: "{{ b3_async.results_file }}"
+      register: b3_stat
+
+    - name: TestB3 - Display stat results
+      ansible.builtin.debug:
+        var: b3_stat
+
+    - name: TestB3 - wait for async
+      ansible.builtin.async_status:
+        jid: "{{ b3_async.ansible_job_id }}"
+      register: b3_async_result
+      until: b3_async_result.finished
+      retries: 50
+      delay: 1
+      
+
+    - name: TestB3 - display sleep task results
+      ansible.builtin.debug:
+        var: b3_async
