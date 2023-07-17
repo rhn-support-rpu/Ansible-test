@@ -47,7 +47,8 @@
       async: 1000
       poll: 0
       register: b3_async
-      
+      vars:
+        ansible_async_dir: '/tmp/.ansible_async'
 
     - name: TestB3 - stat results file
       ansible.builtin.stat:
@@ -65,7 +66,8 @@
       until: b3_async_result.finished
       retries: 50
       delay: 1
-      
+      vars:
+        ansible_async_dir: '/tmp/.ansible_async'
 
     - name: TestB3 - display sleep task results
       ansible.builtin.debug:
