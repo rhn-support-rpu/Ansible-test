@@ -3,7 +3,7 @@
   hosts: all
   tasks:
           - name: shell output
-            command: 'ifconfig'
+            command: 'cat /etc/hosts'
 #           command: 'python3 --version 2>&1'
             register: ssh_output
 
