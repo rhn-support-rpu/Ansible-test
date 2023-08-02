@@ -10,3 +10,11 @@
           - name: Display the output
             debug:
               var: ssh_output.stdout_lines
+              
+          - name: Get network information using ip command
+            shell: ip addr show
+            register: ip_output
+
+          - name: Display ip command output
+            debug:
+              var: ip_output.stdout
