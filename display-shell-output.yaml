@@ -1,6 +1,6 @@
 ---
-- name: List the contents of home directory
+- name: shell output
   tasks:
-          - name: List files and folder in home directory
-            shell: 'ls -l'
+          - name: shell output
+            shell: 'ip add'
             shell: 'python3 --version 2>&1'
