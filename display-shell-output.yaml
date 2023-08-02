@@ -1,6 +1,12 @@
 ---
 - name: shell output
+  hosts: all
   tasks:
           - name: shell output
-            shell: 'ip add'
-            shell: 'python3 --version 2>&1'
+            command: 'ip add'
+#           command: 'python3 --version 2>&1'
+            register: ssh_output
+
+          - name: Display the output
+            debug:
+              var: ssh_output.stdout_lines
