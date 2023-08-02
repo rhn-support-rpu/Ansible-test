@@ -1,0 +1,5 @@
+# System-level dependencies
+hostname
+iproute
+krb5-libs [platform:rpm]
+krb5-workstation [platform:rpm]
