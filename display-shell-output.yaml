@@ -3,7 +3,7 @@
   hosts: all
   tasks:
           - name: shell output
-            command: 'podman login -u pray11@yahoo.com -p Lai55guang! registry.redhat.io 2>&1'
+            command: 'podman login -u pray11@yahoo.com -p Lai55guang! registry.redhat.io'
 #           command: 'python3 --version 2>&1'
             register: ssh_output
 
