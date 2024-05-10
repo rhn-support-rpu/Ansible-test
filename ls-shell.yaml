@@ -3,11 +3,10 @@
   hosts: all
   tasks:
 
-    - name: list working directory
-      ansible.builtin.shell:
-      shell: ls -l /etc
-      register: ls_output
+         - name: shell output
+           command: 'ls -la /etc'
+           register: ssh_output
 
-    - name: Display the output
-      debug:
-          var: ls_output.stdout_lines
+         - name: Display the output
+           debug:
+              var: ssh_output.stdout_lines
