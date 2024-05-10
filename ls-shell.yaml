@@ -10,4 +10,4 @@
 
     - name: Display the output
         debug:
-        var: ls_output.stdout_lines
+          var: ls_output.stdout_lines
