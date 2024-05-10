@@ -1,0 +1,4 @@
+- name: Copy inventory.ini file to the host
+  template:
+    src: inventory.ini
+    dest: /tmp/inventory.ini
