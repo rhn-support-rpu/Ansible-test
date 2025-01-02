@@ -1,13 +1,9 @@
 ---
 - name: shell output
   hosts: all
-  gather_facts: no
+  gather_facts: false
   tasks:
-    - name: list working directory
-      ansible.builtin.shell:
-        shell: ls -l /etc
-        register: ls_output
-
-    - name: Display the output
-      debug:
-          var: ls_output.stdout_lines
+    - name: Install package
+      ansible.builtin.yum:
+        name: mlocate
+        state: present
