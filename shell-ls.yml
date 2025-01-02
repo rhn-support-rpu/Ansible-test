@@ -1,6 +1,7 @@
 ---
 - name: shell output
   hosts: all
+  gather_facts: no
   tasks:
     - name: list working directory
       ansible.builtin.shell:
@@ -9,4 +10,4 @@
 
     - name: Display the output
         debug:
-        var: ls_output.stdout_lines
+          var: ls_output.stdout_lines
