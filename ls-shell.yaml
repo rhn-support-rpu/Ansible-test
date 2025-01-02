@@ -1,6 +1,7 @@
 ---
 - name: shell output
   hosts: all
+  gather_facts: no
   tasks:
 
          - name: shell output
