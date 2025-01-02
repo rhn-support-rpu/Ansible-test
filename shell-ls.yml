@@ -9,5 +9,5 @@
         register: ls_output
 
     - name: Display the output
-        debug:
+      debug:
           var: ls_output.stdout_lines
