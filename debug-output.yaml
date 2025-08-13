@@ -1,0 +1,24 @@
+---
+- name: First play
+  vars:
+    temp_dir: /tmp/ansible_test
+  tasks:
+    - name: Create a temporary directory
+      ansible.builtin.tempfile:
+        state: directory
+        suffix: test
+      register: tf_build_dir
+
+    - name: Create a sample output file (simulating terraform output)
+      ansible.builtin.shell:
+        cmd: "echo 'This is a sample terraform plan output' > {{ tf_build_dir.path }}/tfplan.txt"
+      
+    - name: Display the content of terraform plan summary
+      ansible.builtin.command:
+        cmd: "cat {{ tf_build_dir.path }}/tfplan.txt"
+      register: tfplan_summary_content
+      changed_when: tfplan_summary_content.rc != 0
+
+    - name: Show the output content
+      debug:
+        msg: "{{ tfplan_summary_content.stdout }}"
