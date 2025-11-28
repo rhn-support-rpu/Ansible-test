@@ -16,4 +16,4 @@
         controller_password: "aap3211!"
         validate_certs: "false"
         job_templates:
-          - job1
+          - "Demo Job Template"
