@@ -1,0 +1,19 @@
+- name: Export AAP data to YAML files
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - group_vars/all
+
+  environment:
+    CONTROLLER_OPTIONAL_API_URLPATTERN_PREFIX: '/api/controller/'
+    AWXKIT_API_BASE_PATH: '/api/controller/'
+
+  tasks:
+    - name: "Export all AAP assets"
+      ansible.controller.export:
+        controller_host: "aap25gw1.example101.com"
+        controller_username: "admin"
+        controller_password: "aap3211!"
+        validate_certs: "false"
+        job_templates:
+          - job1
