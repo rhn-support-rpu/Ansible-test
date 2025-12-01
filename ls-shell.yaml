@@ -5,7 +5,7 @@
   tasks:
 
          - name: shell output
-           command: 'ls -la /etc'
+           command: 'ls -la /tmp/aap'
            register: ssh_output
 
          - name: Display the output
