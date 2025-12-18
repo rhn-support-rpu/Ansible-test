@@ -1,0 +1,21 @@
+---
+- name: Execute Task 1 for Group 1
+  hosts: group1
+  tasks:
+    - name: Running task 1
+      ansible.builtin.debug:
+        msg: "Executing Task 1 on {{ inventory_hostname }}"
+
+- name: Execute Task 2 for Group 2
+  hosts: group2
+  tasks:
+    - name: Running task 2
+      ansible.builtin.debug:
+        msg: "Executing Task 2 on {{ inventory_hostname }}"
+
+- name: Execute Task 3 for Group 3
+  hosts: group3
+  tasks:
+    - name: Running task 3
+      ansible.builtin.debug:
+        msg: "Executing Task 3 on {{ inventory_hostname }}"
