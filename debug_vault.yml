@@ -1,0 +1,19 @@
+---
+- name: Verify Vault Decryption in AAP
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: List files in the group_vars/all directory
+      # This runs on the AAP execution node to show the file exists
+      ansible.builtin.command: ls -R group_vars/all
+      delegate_to: localhost
+      register: directory_listing
+
+    - name: Display directory structure
+      ansible.builtin.debug:
+        var: directory_listing.stdout_lines
+
+    - name: Check if the vault variable is defined
+      # Replace 'vault_svc_linuxjoin' with your actual variable name
+      ansible.builtin.debug:
+        msg: "The variable is: {{ test | default('UNDEFINED') }}"
