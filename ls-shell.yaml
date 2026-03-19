@@ -5,7 +5,7 @@
   tasks:
 
          - name: shell output
-           command: 'ls -la /tmp/aap'
+           command: 'ls -la /runner/'
            register: ssh_output
 
          - name: Display the output
