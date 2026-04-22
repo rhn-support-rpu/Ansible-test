@@ -1,25 +1,25 @@
 ---
-- name: Assign Project Admin role to user1
+- name: Assign Project Admin role via ansible.controller.role
   hosts: localhost
   connection: local
   gather_facts: false
-  collections:
-    - infra.aap_configuration
+
   vars:
-    # Connection details for your AAP Controller
-    controller_hostname: "aap26c10.example.org"
+    # Connection details
+    controller_host: "https://aap26c10.example.org"
     controller_username: "admin"
     controller_password: "aap3211!"
     validate_certs: false
 
-    # The data structure the role expects
-    controller_roles:
-      - user: "user1"
-        role: "admin"        # The role level
-        project: "Demo Project" # The target resource
-        state: present
-
   tasks:
-    - name: Apply RBAC configuration
-      ansible.builtin.import_role:
-        name: infra.aap_configuration.controller_roles
+    - name: Grant Admin role on Demo Project to user1
+      ansible.controller.role:
+        user: "user1"
+        project: "Demo Project"
+        role: "admin"
+        state: present
+        # Connection parameters
+        controller_host: "{{ controller_host }}"
+        controller_username: "{{ controller_username }}"
+        controller_password: "{{ controller_password }}"
+        validate_certs: "{{ validate_certs }}"
