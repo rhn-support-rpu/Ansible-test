@@ -3,6 +3,8 @@
   hosts: localhost
   connection: local
   gather_facts: false
+  collections:
+    - infra.aap_configuration
   vars:
     # Connection details for your AAP Controller
     controller_hostname: "aap26c10.example.org"
